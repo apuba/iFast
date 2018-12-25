@@ -1,0 +1,8 @@
+# Build and Release Folders
+dist/
+.history/
+node_modules/
+package-lock.json
+.idea/
+.idea/*
+.idea/workspace.xml
