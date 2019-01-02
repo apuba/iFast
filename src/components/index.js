@@ -1,10 +1,10 @@
 /*
  * @Author: chenzhinjian
  * @Date: 2018-12-28 14:43:00
- * @LastEditTime: 2019-01-02 10:54:15
+ * @LastEditTime: 2019-01-02 14:42:58
  * @Description: 
  */
-import Vue from "vue";
+// import Vue from "vue";
 import Msg from './Msg/index.vue';
 import HelloWorld from './HelloWorld.vue';
 import numberComma from './tools/number/comma.js'
@@ -15,9 +15,16 @@ const Components = [
   Msg,
   HelloWorld
 ];
-Components.map(component => {
-  Vue.component(component.name, component);
-})
+const install = function(Vue, opts = {}) {
+  components.map(component => {
+    Vue.component(component.name, component);
+  })
+}
+
+/* 支持使用标签的方式引入 */
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
 export {
   Msg,
   HelloWorld,
